@@ -4,12 +4,77 @@ if (document.readyState == 'loading'){
     game()
 }
 
-const cells = document.getElementsByClassName('cell')
-
 function game(){
 
+    const cells = document.getElementsByClassName('cell')
+
     for (i = 0; i< cells.length; i++){
-            cells[i].addEventListener('click', cellClicked)
+        cells[i].addEventListener('click', cellClicked)
+    }
+
+    function checkForWin(){
+        if (cells[0].innerText == 'x'){
+            if (cells[1].innerText == 'x'){
+                if (cells[2].innerText == 'x'){
+                    alert('You won!')
+                    return
+                }
+            }
+            if (cells[4].innerText == 'x'){
+                if (cells[8].innerText == 'x'){
+                    alert('You won!')
+                    return
+                }
+            }
+            if (cells[3].innerText == 'x'){
+                if (cells[6].innerText == 'x'){
+                    alert('You won!')
+                    return
+                }
+            }
+        }
+
+        if (cells[8].innerText == 'x'){
+            if (cells[7].innerText == 'x'){
+                if (cells[6].innerText == 'x'){
+                    alert('You won!')
+                    return
+                }
+            }
+            if (cells[5].innerText == 'x'){
+                if (cells[2].innerText == 'x'){
+                    alert('You won!')
+                    return
+                }
+            }
+        }
+
+        if (cells[6].innerText == 'x'){
+            if (cells[4].innerText == 'x'){
+                if (cells[2].innerText == 'x'){
+                    alert('You won!')
+                    return
+                }
+            }
+        }
+
+        if (cells[1].innerText == 'x'){
+            if (cells[4].innerText == 'x'){
+                if (cells[7].innerText == 'x'){
+                    alert('You won!')
+                    return
+                }
+            }
+        }
+
+        if (cells[3].innerText == 'x'){
+            if (cells[4].innerText == 'x'){
+                if (cells[5].innerText == 'x'){
+                    alert('You won!')
+                    return
+                }
+            }
+        }
     }
 
     function computerTurn(){
@@ -26,8 +91,11 @@ function game(){
     function cellClicked(event){
         var cell = event.target
         if (cell.innerText !== 'o'){
-            cell.innerText = 'x'
-            computerTurn()
+            if (cell.innerText !== 'x'){
+                cell.innerText = 'x'
+                computerTurn()
+            }
         }
+        checkForWin()
     }
 }
