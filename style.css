@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+*{
+    font-family: "Source Sans Pro", sans-serif;
+    box-sizing: border-box;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: black;
+    background-image: linear-gradient(to top, black, rgb(32, 32, 32));
+}
+
+.full-screen{
+    width: auto;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playing-grid{
+    background-image: url(images/grid-background.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 400px;
+    height: 400px;
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.cell{
+    border: 1px solid black;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 133px;
+    font-size: 3em;
+}
+    .cell:hover{
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.3);
+        background-blend-mode: multiply;
+    }
+    .cell:active{
+        background-color: rgba(0, 0, 0, 0.6);
+        background-blend-mode: multiply;
+    }
