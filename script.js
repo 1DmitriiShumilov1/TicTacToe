@@ -58,7 +58,7 @@ function game(){
         for (i = 0; i < possibleWins.length; i++){
             if ((possibleWins[i][0].innerText == 'o') && (possibleWins[i][1].innerText == 'o') && (possibleWins[i][2].innerText == 'o')){
                 document.getElementsByClassName('win-loss')[0].innerText = 'You lost'
-                clearGrid() 
+                clearGrid()
             }
         }
     }
