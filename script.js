@@ -67,6 +67,14 @@ function game(){
                 }, 2000);
             }
         }
+
+        if (movesMade == 5){
+            document.getElementsByClassName('win-loss')[0].innerText = 'Draw'
+            setTimeout(function (){
+                clearGrid()
+                document.getElementsByClassName('win-loss')[0].innerText = ''
+            }, 2000);
+        }
     }
 
     function computerTurn(){
@@ -78,34 +86,28 @@ function game(){
             for (i = 0; i < possibleWins.length; i++){
                 //check if there's a chance for win//
                 if (((possibleWins[i][0].innerText == 'o') && (possibleWins[i][2].innerText == 'o')) && (possibleWins[i][1].innerText == '')){
-                    console.log(possibleWins[i][0], possibleWins[i][2], 'win')
                     possibleWins[i][1].innerText = 'o'
                     return
                 }
                 if (((possibleWins[i][0].innerText == 'o') && (possibleWins[i][1].innerText == 'o')) && (possibleWins[i][2].innerText == '')){
-                    console.log(possibleWins[i][0], possibleWins[i][1], 'win')
                     possibleWins[i][2].innerText = 'o'
                     return
                 }
                 if (((possibleWins[i][1].innerText == 'o') && (possibleWins[i][2].innerText == 'o')) && (possibleWins[i][0].innerText == '')){
-                    console.log(possibleWins[i][1], possibleWins[i][2], 'win')
                     possibleWins[i][0].innerText = 'o'
                     return
                 }
 
                 // check if need to defend //
                 if (((possibleWins[i][0].innerText == 'x') && (possibleWins[i][2].innerText == 'x')) && (possibleWins[i][1].innerText == '')){
-                    console.log(possibleWins[i][0], possibleWins[i][2], 'defend')
                     possibleWins[i][1].innerText = 'o'
                     return
                 }
                 if (((possibleWins[i][0].innerText == 'x') && (possibleWins[i][1].innerText == 'x')) && (possibleWins[i][2].innerText == '')){
-                    console.log(possibleWins[i][0], possibleWins[i][1], 'defend')
                     possibleWins[i][2].innerText = 'o'
                     return
                 }
                 if (((possibleWins[i][1].innerText == 'x') && (possibleWins[i][2].innerText == 'x')) && (possibleWins[i][0].innerText == '')){
-                    console.log(possibleWins[i][1], possibleWins[i][2], 'defend')
                     possibleWins[i][0].innerText = 'o'
                     return
                 }
