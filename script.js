@@ -6,12 +6,26 @@ if (document.readyState == 'loading'){
 
 function game(){
 
-    const cells = document.getElementsByClassName('cell')
+    const cells = document.getElementsByClassName('cell') // reports 9 divs
+
     var movesMade = 0
 
     for (i = 0; i< cells.length; i++){
-        cells[i].addEventListener('click', cellClicked)
+        cells[i].addEventListener('click', cellClicked) // Checks if one of the cells is clicked
     }
+
+    var possibleWins = [
+        [cells[0], cells[1], cells[2]], //horizontal 1
+        [cells[3], cells[4], cells[5]], //horizontal 2
+        [cells[6], cells[7], cells[8]], //horizontal 3
+
+        [cells[0], cells[3], cells[6]], //vertical 1
+        [cells[1], cells[4], cells[7]], //vertical 2
+        [cells[2], cells[5], cells[8]], //vertical 3
+
+        [cells[0], cells[4], cells[8]], //diagonal 1
+        [cells[6], cells[4], cells[2]]  //diagonal 2
+    ]
 
     function clearGrid(){
         for (i = 0; i < cells.length; i++){
@@ -32,165 +46,24 @@ function game(){
     }
 
     function checkForWinOrLoss(){
-        if (cells[0].innerText == 'x'){
-            if (cells[1].innerText == 'x'){
-                if (cells[2].innerText == 'x'){
-                    alert('You won!')
-                    clearGrid()
-                    return
-                }
-            }
-            if (cells[4].innerText == 'x'){
-                if (cells[8].innerText == 'x'){
-                    alert('You won!')
-                    clearGrid()
-                    return
-                }
-            }
-            if (cells[3].innerText == 'x'){
-                if (cells[6].innerText == 'x'){
-                    alert('You won!')
-                    clearGrid()
-                    return
-                }
+        //Checks if player won//
+        for (i = 0; i < possibleWins.length; i++){
+            if ((possibleWins[i][0].innerText == 'x') && (possibleWins[i][1].innerText == 'x') && (possibleWins[i][2].innerText == 'x')){
+                document.getElementsByClassName('win-loss')[0].innerText = 'You won!'
+                clearGrid()
             }
         }
 
-        if (cells[8].innerText == 'x'){
-            if (cells[7].innerText == 'x'){
-                if (cells[6].innerText == 'x'){
-                    alert('You won!')
-                    clearGrid()
-                    return
-                }
-            }
-            if (cells[5].innerText == 'x'){
-                if (cells[2].innerText == 'x'){
-                    alert('You won!')
-                    clearGrid()
-                    return
-                }
+        //Checks if player lost//
+        for (i = 0; i < possibleWins.length; i++){
+            if ((possibleWins[i][0].innerText == 'o') && (possibleWins[i][1].innerText == 'o') && (possibleWins[i][2].innerText == 'o')){
+                document.getElementsByClassName('win-loss')[0].innerText = 'You lost'
+                clearGrid() 
             }
         }
-
-        if (cells[6].innerText == 'x'){
-            if (cells[4].innerText == 'x'){
-                if (cells[2].innerText == 'x'){
-                    alert('You won!')
-                    clearGrid()
-                    return
-                }
-            }
-        }
-
-        if (cells[1].innerText == 'x'){
-            if (cells[4].innerText == 'x'){
-                if (cells[7].innerText == 'x'){
-                    alert('You won!')
-                    clearGrid()
-                    return
-                }
-            }
-        }
-
-        if (cells[3].innerText == 'x'){
-            if (cells[4].innerText == 'x'){
-                if (cells[5].innerText == 'x'){
-                    alert('You won!')
-                    clearGrid()
-                    return
-                }
-            }
-        }
-
-        //------------------------------------------//
-
-        if (cells[0].innerText == 'o'){
-            if (cells[1].innerText == 'o'){
-                if (cells[2].innerText == 'o'){
-                    alert('You lost')
-                    clearGrid()
-                    return
-                }
-            }
-            if (cells[4].innerText == 'o'){
-                if (cells[8].innerText == 'o'){
-                    alert('You lost')
-                    clearGrid()
-                    return
-                }
-            }
-            if (cells[3].innerText == 'o'){
-                if (cells[6].innerText == 'o'){
-                    alert('You lost')
-                    clearGrid()
-                    return
-                }
-            }
-        }
-
-        if (cells[8].innerText == 'o'){
-            if (cells[7].innerText == 'o'){
-                if (cells[6].innerText == 'o'){
-                    alert('You lost')
-                    clearGrid()
-                    return
-                }
-            }
-            if (cells[5].innerText == 'o'){
-                if (cells[2].innerText == 'o'){
-                    alert('You lost')
-                    clearGrid()
-                    return
-                }
-            }
-        }
-
-        if (cells[6].innerText == 'o'){
-            if (cells[4].innerText == 'o'){
-                if (cells[2].innerText == 'o'){
-                    alert('You lost')
-                    clearGrid()
-                    return
-                }
-            }
-        }
-
-        if (cells[1].innerText == 'o'){
-            if (cells[4].innerText == 'o'){
-                if (cells[7].innerText == 'o'){
-                    alert('You lost')
-                    clearGrid()
-                    return
-                }
-            }
-        }
-
-        if (cells[3].innerText == 'o'){
-            if (cells[4].innerText == 'o'){
-                if (cells[5].innerText == 'o'){
-                    alert('You lost')
-                    clearGrid()
-                    return
-                }
-            }
-        }
-
     }
 
     function computerTurn(){
-        var possibleWins = [
-            [cells[0], cells[1], cells[2]], //horizontal 1
-            [cells[3], cells[4], cells[5]], //horizontal 2
-            [cells[6], cells[7], cells[8]], //horizontal 3
-
-            [cells[0], cells[3], cells[6]], //vertical 1
-            [cells[1], cells[4], cells[7]], //vertical 2
-            [cells[2], cells[5], cells[8]], //vertical 3
-
-            [cells[0], cells[4], cells[8]], //diagonal 1
-            [cells[6], cells[4], cells[2]]  //diagonal 2
-        ]
         if (movesMade == 1){
             pickRandom()
         }

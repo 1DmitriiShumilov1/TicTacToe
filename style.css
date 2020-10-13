@@ -11,8 +11,8 @@ html, body{
 }
 
 body{
-    background-color: black;
     background-image: linear-gradient(to top, black, rgb(32, 32, 32));
+    min-height: 100vh;
 }
 
 .full-screen{
@@ -21,6 +21,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .playing-grid{
@@ -53,3 +54,14 @@ body{
         background-color: rgba(0, 0, 0, 0.6);
         background-blend-mode: multiply;
     }
+
+.win-loss{
+    background: -webkit-linear-gradient(#eee, rgb(155, 155, 155));
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 0;
+    margin-top: 20px;
+}
