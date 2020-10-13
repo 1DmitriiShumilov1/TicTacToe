@@ -50,7 +50,10 @@ function game(){
         for (i = 0; i < possibleWins.length; i++){
             if ((possibleWins[i][0].innerText == 'x') && (possibleWins[i][1].innerText == 'x') && (possibleWins[i][2].innerText == 'x')){
                 document.getElementsByClassName('win-loss')[0].innerText = 'You won!'
-                clearGrid()
+                setTimeout(function (){
+                    clearGrid()
+                    document.getElementsByClassName('win-loss')[0].innerText = ''
+                }, 2000);
             }
         }
 
@@ -58,7 +61,10 @@ function game(){
         for (i = 0; i < possibleWins.length; i++){
             if ((possibleWins[i][0].innerText == 'o') && (possibleWins[i][1].innerText == 'o') && (possibleWins[i][2].innerText == 'o')){
                 document.getElementsByClassName('win-loss')[0].innerText = 'You lost'
-                clearGrid()
+                setTimeout(function (){
+                    clearGrid()
+                    document.getElementsByClassName('win-loss')[0].innerText = ''
+                }, 2000);
             }
         }
     }
