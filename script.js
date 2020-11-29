@@ -30,8 +30,8 @@ function game(){
     function clearGrid(){
         for (i = 0; i < cells.length; i++){
             cells[i].innerText = ''
-            movesMade = 0
         }
+        movesMade = 0
     }
 
     function pickRandom(){
@@ -69,6 +69,16 @@ function game(){
         }
 
         if (movesMade == 5){
+            for (i = 0; i < possibleWins.length; i++){
+                if ((possibleWins[i][0].innerText == 'x') && (possibleWins[i][1].innerText == 'x') && (possibleWins[i][2].innerText == 'x')){
+                    document.getElementsByClassName('win-loss')[0].innerText = 'You won!'
+                    setTimeout(function (){
+                        clearGrid()
+                        document.getElementsByClassName('win-loss')[0].innerText = ''
+                    }, 2000);
+                    return
+                }
+            }
             document.getElementsByClassName('win-loss')[0].innerText = 'Draw'
             setTimeout(function (){
                 clearGrid()
