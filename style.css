@@ -25,7 +25,9 @@ body{
 }
 
 .playing-grid{
-    background-image: url(images/grid-background.jpg);
+    background: #EB5757;
+    background: -webkit-linear-gradient(to left, #924d4d, #EB5757);
+    background: linear-gradient(to left, #924d4d, #EB5757);
     background-size: cover;
     background-position: center;
     width: 400px;
