@@ -42,7 +42,7 @@ function game(){
                 setTimeout(function (){
                     clearGrid()
                     document.getElementsByClassName('win-loss')[0].innerText = ''
-                }, 2000);
+                }, 1500);
             }
         }
 
@@ -53,7 +53,7 @@ function game(){
                 setTimeout(function (){
                     clearGrid()
                     document.getElementsByClassName('win-loss')[0].innerText = ''
-                }, 2000);
+                }, 1500);
             }
         }
     }
