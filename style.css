@@ -12,6 +12,7 @@ html, body{
 
 body{
     background-image: linear-gradient(to top, black, rgb(32, 32, 32));
+    min-height: 100vh;
 }
 
 .full-screen{
